@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://cr7gihk4xs3r3"]
+
+[ext_resource type="PackedScene" uid="uid://dy2shu1kdelr4" path="res://scenes/player.tscn" id="1_hb3mo"]
+[ext_resource type="Texture2D" uid="uid://g4pqlek218v6" path="res://assets/PlanetsPNG/Planet_01.png" id="2_6urx6"]
+[ext_resource type="Texture2D" uid="uid://bkrwxj4sje136" path="res://assets/PlanetsPNG/Planet_02.png" id="3_7dgdt"]
+[ext_resource type="Texture2D" uid="uid://5aaa4i60by1b" path="res://assets/PlanetsPNG/Planet_03.png" id="4_o0ooa"]
+[ext_resource type="Texture2D" uid="uid://bsd1nb1yy6r6x" path="res://assets/PlanetsPNG/Planet_04.png" id="5_udmb8"]
+[ext_resource type="Texture2D" uid="uid://bcxhwglwq0kp3" path="res://assets/PlanetsPNG/Stars Small_1.png" id="6_onjvj"]
+[ext_resource type="Texture2D" uid="uid://cpysscd3vbqr3" path="res://assets/PlanetsPNG/Nebula Aqua-Pink.png" id="6_v5s66"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_hb3mo")]
+z_index = 5
+position = Vector2(155, 262)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(2, 4)
+
+[node name="Planet1" type="Sprite2D" parent="."]
+position = Vector2(986, -518)
+texture = ExtResource("2_6urx6")
+
+[node name="Planet2" type="Sprite2D" parent="."]
+position = Vector2(-931, 720)
+texture = ExtResource("3_7dgdt")
+
+[node name="Planet3" type="Sprite2D" parent="."]
+position = Vector2(-878, -1086)
+texture = ExtResource("4_o0ooa")
+
+[node name="Planet4" type="Sprite2D" parent="."]
+position = Vector2(1107, 962)
+texture = ExtResource("5_udmb8")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -1)
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(4096, 4096)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(2048, 2049)
+texture = ExtResource("6_onjvj")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -1)
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(4096, 4096)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color(1, 1, 1, 0.584314)
+position = Vector2(2048, 2049)
+texture = ExtResource("6_v5s66")
