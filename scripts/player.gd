@@ -6,9 +6,11 @@ const JUMP_VELOCITY = -400.0
 
 var target = position
 
-func _input(event):
-	if event.is_action_pressed(&"click"):
+func _process(delta: float) -> void:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		target = get_global_mouse_position()
+	else:
+		target = position
 
 func _physics_process(delta: float) -> void:
 	velocity = position.direction_to(target) * SPEED
